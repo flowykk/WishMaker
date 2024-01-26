@@ -1,0 +1,398 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		83D2BA782B63EE2100E8908D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D2BA772B63EE2100E8908D /* AppDelegate.swift */; };
+		83D2BA812B63EE2600E8908D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83D2BA802B63EE2600E8908D /* Assets.xcassets */; };
+		83D2BA842B63EE2600E8908D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83D2BA822B63EE2600E8908D /* LaunchScreen.storyboard */; };
+		83DC062A2B63F1F300AAF568 /* WrittenWishCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DC061F2B63F1F200AAF568 /* WrittenWishCell.swift */; };
+		83DC062B2B63F1F300AAF568 /* CustomSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DC06202B63F1F200AAF568 /* CustomSliderView.swift */; };
+		83DC062C2B63F1F300AAF568 /* UIViewPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DC06212B63F1F200AAF568 /* UIViewPin.swift */; };
+		83DC062D2B63F1F300AAF568 /* WishEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DC06222B63F1F300AAF568 /* WishEventCell.swift */; };
+		83DC062E2B63F1F300AAF568 /* WishEventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DC06232B63F1F300AAF568 /* WishEventModel.swift */; };
+		83DC062F2B63F1F300AAF568 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DC06242B63F1F300AAF568 /* Constants.swift */; };
+		83DC06302B63F1F300AAF568 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DC06252B63F1F300AAF568 /* SceneDelegate.swift */; };
+		83DC06312B63F1F300AAF568 /* WishMakerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DC06262B63F1F300AAF568 /* WishMakerViewController.swift */; };
+		83DC06322B63F1F300AAF568 /* WishStoringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DC06272B63F1F300AAF568 /* WishStoringViewController.swift */; };
+		83DC06332B63F1F300AAF568 /* WishCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DC06282B63F1F300AAF568 /* WishCalendarViewController.swift */; };
+		83DC06382B63FDDA00AAF568 /* SFMono-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 83DC06372B63FDB800AAF568 /* SFMono-Regular.otf */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		83D2BA742B63EE2100E8908D /* WishMakerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WishMakerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		83D2BA772B63EE2100E8908D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		83D2BA802B63EE2600E8908D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		83D2BA832B63EE2600E8908D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		83D2BA852B63EE2600E8908D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		83DC061F2B63F1F200AAF568 /* WrittenWishCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WrittenWishCell.swift; path = "../../../../ios nis/iOs-NIS/ddrakhmanovPW4/ddrakhmanovPW2/WrittenWishCell.swift"; sourceTree = "<group>"; };
+		83DC06202B63F1F200AAF568 /* CustomSliderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomSliderView.swift; path = "../../../../ios nis/iOs-NIS/ddrakhmanovPW4/ddrakhmanovPW2/CustomSliderView.swift"; sourceTree = "<group>"; };
+		83DC06212B63F1F200AAF568 /* UIViewPin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewPin.swift; path = "../../../../ios nis/iOs-NIS/ddrakhmanovPW4/ddrakhmanovPW2/UIViewPin.swift"; sourceTree = "<group>"; };
+		83DC06222B63F1F300AAF568 /* WishEventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WishEventCell.swift; path = "../../../../ios nis/iOs-NIS/ddrakhmanovPW4/ddrakhmanovPW2/WishEventCell.swift"; sourceTree = "<group>"; };
+		83DC06232B63F1F300AAF568 /* WishEventModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WishEventModel.swift; path = "../../../../ios nis/iOs-NIS/ddrakhmanovPW4/ddrakhmanovPW2/WishEventModel.swift"; sourceTree = "<group>"; };
+		83DC06242B63F1F300AAF568 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = "../../../../ios nis/iOs-NIS/ddrakhmanovPW4/ddrakhmanovPW2/Constants.swift"; sourceTree = "<group>"; };
+		83DC06252B63F1F300AAF568 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = "../../../../ios nis/iOs-NIS/ddrakhmanovPW4/ddrakhmanovPW2/SceneDelegate.swift"; sourceTree = "<group>"; };
+		83DC06262B63F1F300AAF568 /* WishMakerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WishMakerViewController.swift; path = "../../../../ios nis/iOs-NIS/ddrakhmanovPW4/ddrakhmanovPW2/WishMakerViewController.swift"; sourceTree = "<group>"; };
+		83DC06272B63F1F300AAF568 /* WishStoringViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WishStoringViewController.swift; path = "../../../../ios nis/iOs-NIS/ddrakhmanovPW4/ddrakhmanovPW2/WishStoringViewController.swift"; sourceTree = "<group>"; };
+		83DC06282B63F1F300AAF568 /* WishCalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WishCalendarViewController.swift; path = "../../../../ios nis/iOs-NIS/ddrakhmanovPW4/ddrakhmanovPW2/WishCalendarViewController.swift"; sourceTree = "<group>"; };
+		83DC06372B63FDB800AAF568 /* SFMono-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SFMono-Regular.otf"; path = "../../../../../../../../Downloads/San Francisco Mono/SFMono-Regular.otf"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		83D2BA712B63EE2100E8908D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		83D2BA6B2B63EE2100E8908D = {
+			isa = PBXGroup;
+			children = (
+				83D2BA762B63EE2100E8908D /* WishMakerApp */,
+				83D2BA752B63EE2100E8908D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		83D2BA752B63EE2100E8908D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				83D2BA742B63EE2100E8908D /* WishMakerApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		83D2BA762B63EE2100E8908D /* WishMakerApp */ = {
+			isa = PBXGroup;
+			children = (
+				83DC06362B63FD6200AAF568 /* fonts */,
+				83D2BA772B63EE2100E8908D /* AppDelegate.swift */,
+				83DC06262B63F1F300AAF568 /* WishMakerViewController.swift */,
+				83DC06242B63F1F300AAF568 /* Constants.swift */,
+				83DC06202B63F1F200AAF568 /* CustomSliderView.swift */,
+				83DC06252B63F1F300AAF568 /* SceneDelegate.swift */,
+				83DC06212B63F1F200AAF568 /* UIViewPin.swift */,
+				83DC06282B63F1F300AAF568 /* WishCalendarViewController.swift */,
+				83DC06222B63F1F300AAF568 /* WishEventCell.swift */,
+				83DC06232B63F1F300AAF568 /* WishEventModel.swift */,
+				83DC06272B63F1F300AAF568 /* WishStoringViewController.swift */,
+				83DC061F2B63F1F200AAF568 /* WrittenWishCell.swift */,
+				83D2BA802B63EE2600E8908D /* Assets.xcassets */,
+				83D2BA822B63EE2600E8908D /* LaunchScreen.storyboard */,
+				83D2BA852B63EE2600E8908D /* Info.plist */,
+			);
+			path = WishMakerApp;
+			sourceTree = "<group>";
+		};
+		83DC06362B63FD6200AAF568 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				83DC06372B63FDB800AAF568 /* SFMono-Regular.otf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		83D2BA732B63EE2100E8908D /* WishMakerApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 83D2BA882B63EE2600E8908D /* Build configuration list for PBXNativeTarget "WishMakerApp" */;
+			buildPhases = (
+				83D2BA702B63EE2100E8908D /* Sources */,
+				83D2BA712B63EE2100E8908D /* Frameworks */,
+				83D2BA722B63EE2100E8908D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WishMakerApp;
+			productName = WishMakerApp;
+			productReference = 83D2BA742B63EE2100E8908D /* WishMakerApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		83D2BA6C2B63EE2100E8908D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					83D2BA732B63EE2100E8908D = {
+						CreatedOnToolsVersion = 15.2;
+					};
+				};
+			};
+			buildConfigurationList = 83D2BA6F2B63EE2100E8908D /* Build configuration list for PBXProject "WishMakerApp" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 83D2BA6B2B63EE2100E8908D;
+			productRefGroup = 83D2BA752B63EE2100E8908D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				83D2BA732B63EE2100E8908D /* WishMakerApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		83D2BA722B63EE2100E8908D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83DC06382B63FDDA00AAF568 /* SFMono-Regular.otf in Resources */,
+				83D2BA842B63EE2600E8908D /* LaunchScreen.storyboard in Resources */,
+				83D2BA812B63EE2600E8908D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		83D2BA702B63EE2100E8908D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83DC062A2B63F1F300AAF568 /* WrittenWishCell.swift in Sources */,
+				83DC062B2B63F1F300AAF568 /* CustomSliderView.swift in Sources */,
+				83DC062C2B63F1F300AAF568 /* UIViewPin.swift in Sources */,
+				83DC062E2B63F1F300AAF568 /* WishEventModel.swift in Sources */,
+				83DC06312B63F1F300AAF568 /* WishMakerViewController.swift in Sources */,
+				83DC062D2B63F1F300AAF568 /* WishEventCell.swift in Sources */,
+				83DC06322B63F1F300AAF568 /* WishStoringViewController.swift in Sources */,
+				83DC06302B63F1F300AAF568 /* SceneDelegate.swift in Sources */,
+				83D2BA782B63EE2100E8908D /* AppDelegate.swift in Sources */,
+				83DC06332B63F1F300AAF568 /* WishCalendarViewController.swift in Sources */,
+				83DC062F2B63F1F300AAF568 /* Constants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		83D2BA822B63EE2600E8908D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				83D2BA832B63EE2600E8908D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		83D2BA862B63EE2600E8908D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		83D2BA872B63EE2600E8908D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		83D2BA892B63EE2600E8908D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MV84AF3V6Q;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WishMakerApp/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = flowykk.WishMakerApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		83D2BA8A2B63EE2600E8908D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MV84AF3V6Q;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WishMakerApp/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = flowykk.WishMakerApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		83D2BA6F2B63EE2100E8908D /* Build configuration list for PBXProject "WishMakerApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83D2BA862B63EE2600E8908D /* Debug */,
+				83D2BA872B63EE2600E8908D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		83D2BA882B63EE2600E8908D /* Build configuration list for PBXNativeTarget "WishMakerApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83D2BA892B63EE2600E8908D /* Debug */,
+				83D2BA8A2B63EE2600E8908D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 83D2BA6C2B63EE2100E8908D /* Project object */;
+}
