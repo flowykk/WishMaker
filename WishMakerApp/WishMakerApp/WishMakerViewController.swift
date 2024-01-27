@@ -16,9 +16,10 @@ class WishMakerViewController: UIViewController, UIColorPickerViewControllerDele
     var alertController: UIAlertController?
     var baseMessage: String?
     
-    let colorLabel = UILabel()
     let titleLabel = UILabel()
     let descriptionLabel = UILabel()
+    let colorLabel = UILabel()
+    let colorDescriptionLabel = UILabel()
     
     let hideButton: UIButton = UIButton(type: .system)
     let randomColorButton: UIButton = UIButton(type: .system)
@@ -48,6 +49,7 @@ class WishMakerViewController: UIViewController, UIColorPickerViewControllerDele
         configureTitle()
         configureDescription()
         configureColor()
+        configureColorDescription()
         configureButtons()
         configureSliders()
         
@@ -167,7 +169,7 @@ class WishMakerViewController: UIViewController, UIColorPickerViewControllerDele
     // MARK: - configure hex color label
     private func configureColor() {
         colorLabel.text = Constants.defaultColorLabelText
-        colorLabel.font = UIFont(name: "SFMono-Regular", size: Constants.colorLabelFontSize) //.boldSystemFont(ofSize: Constants.colorLabelFontSize)
+        colorLabel.font = UIFont(name: "SFMono-Regular", size: Constants.colorLabelFontSize)
         colorLabel.textColor = Constants.viewColor
         colorLabel.textAlignment = .center
         
@@ -179,6 +181,19 @@ class WishMakerViewController: UIViewController, UIColorPickerViewControllerDele
         colorLabel.pinCenterX(to: view)
         colorLabel.pinHorizontal(to: view, Constants.leadingAnchor)
         colorLabel.pinTop(to: descriptionLabel.bottomAnchor, Constants.descriptionTopAnchor)
+    }
+    
+    //MARK: - configure description of copy color feature
+    private func configureColorDescription() {
+        colorDescriptionLabel.text = Constants.defaultColorDescriptionLabelText
+        colorDescriptionLabel.font = UIFont(name: "SFMono-Regular", size: Constants.colorDescriptionLabelFontSize)
+        colorDescriptionLabel.textColor = Constants.viewColor
+        colorDescriptionLabel.textAlignment = .center
+        
+        view.addSubview(colorDescriptionLabel)
+        colorDescriptionLabel.pinCenterX(to: view)
+        colorDescriptionLabel.pinHorizontal(to: view, Constants.leadingAnchor)
+        colorDescriptionLabel.pinTop(to: colorLabel.bottomAnchor, Constants.colorDescriptionTopAnchor)
     }
     
     // MARK: - configure sliders

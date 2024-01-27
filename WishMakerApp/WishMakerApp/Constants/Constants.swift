@@ -48,8 +48,11 @@ enum Constants {
     
     static let leadingAnchor: CGFloat = 20
     
+    static let defaultColorDescriptionLabelText: String = "Tap the color to copy it"
     static let defaultColorLabelText: String = "#FFFFFF"
-    static let colorLabelFontSize: CGFloat = 14
+    static let colorDescriptionLabelFontSize: CGFloat = 12
+    static let colorLabelFontSize: CGFloat = 16
+    static let colorDescriptionTopAnchor: CGFloat = 2
     static let colorLabelFormat: String = "#%02lX%02lX%02lX"
     
     static let maxColorNumber: CGFloat = 255
