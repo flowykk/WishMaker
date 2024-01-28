@@ -61,7 +61,7 @@ final class WishStoringViewController: UIViewController, UISheetPresentationCont
         view.addSubview(addWishTextField)
         addWishTextField.setHeight(Constants.buttonsHeightAnchor)
         addWishTextField.pinHorizontal(to: view, Constants.leadingAnchor)
-        addWishTextField.pinTop(to: view.topAnchor, Constants.titleTopAnchor)
+        addWishTextField.pinTop(to: view.topAnchor, Constants.wishTextFieldTopAnchor)
     }
     
     //MARK: - configure addWish button

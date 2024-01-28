@@ -61,6 +61,8 @@ enum Constants {
     static let titleFontSize: CGFloat = 32
     static let titleTopAnchor: CGFloat = -35
     
+    static let wishTextFieldTopAnchor: CGFloat = 15
+    
     static let description: String =
     """
     This small app can lift your spirits and fulfill three of your wishes!

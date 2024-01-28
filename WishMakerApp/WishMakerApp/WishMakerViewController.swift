@@ -250,7 +250,12 @@ class WishMakerViewController: UIViewController, UIColorPickerViewControllerDele
         UIView.animate(
             withDuration: Constants.randomColorAnimationDur,
             animations: {
-                self.ChangeColors(color: color, sliderRed: self.sliderRed, sliderGreen: self.sliderGreen, sliderBlue: self.sliderBlue)
+                self.ChangeColors(
+                    color: color,
+                    sliderRed: self.sliderRed,
+                    sliderGreen: self.sliderGreen,
+                    sliderBlue: self.sliderBlue
+                )
             },
             completion: { [weak self] _ in
                 self?.randomColorButton.isEnabled = true
@@ -272,14 +277,24 @@ class WishMakerViewController: UIViewController, UIColorPickerViewControllerDele
     @available(iOS 14.0, *)
     internal func colorPickerViewControllerDidSelectColor(_ viewController: UIColorPickerViewController) {
         UIView.animate(withDuration: Constants.colorPickerAnimationDur) {
-            self.ChangeColors(color: viewController.selectedColor, sliderRed: self.sliderRed, sliderGreen: self.sliderGreen, sliderBlue: self.sliderBlue)
+            self.ChangeColors(
+                color: viewController.selectedColor,
+                sliderRed: self.sliderRed,
+                sliderGreen: self.sliderGreen,
+                sliderBlue: self.sliderBlue
+            )
         }
     }
     
     //MARK: - sliderValue was changed
     @objc
     private func sliderValueChanged() {
-        let color = UIColor(red: CGFloat(self.sliderRed.slider.value), green: CGFloat(self.sliderGreen.slider.value), blue: CGFloat(self.sliderBlue.slider.value), alpha: Constants.alphaValue)
+        let color = UIColor(
+            red: CGFloat(self.sliderRed.slider.value),
+            green: CGFloat(self.sliderGreen.slider.value),
+            blue: CGFloat(self.sliderBlue.slider.value), alpha: Constants.alphaValue
+        )
+        
         self.ChangeColors(color: color, sliderRed: self.sliderRed, sliderGreen: self.sliderGreen, sliderBlue: self.sliderBlue)
     }
     
