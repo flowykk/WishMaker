@@ -11,10 +11,12 @@ import UIKit
 class WishMakerViewController: UIViewController, UIColorPickerViewControllerDelegate {
     
     // MARK: - fields
-    let slidersStack = UIStackView()
-    
     var alertController: UIAlertController?
     var baseMessage: String?
+    
+    var previousColor = Constants.defaultPreviousColor
+
+    let slidersStack = UIStackView()
     
     let titleLabel = UILabel()
     let descriptionLabel = UILabel()
@@ -23,10 +25,11 @@ class WishMakerViewController: UIViewController, UIColorPickerViewControllerDele
     
     let hideButton: UIButton = UIButton(type: .system)
     let randomColorButton: UIButton = UIButton(type: .system)
+    let previousColorButton: UIButton = UIButton(type: .system)
     let colorPickerButton: UIButton = UIButton(type: .system)
     let showWishButton: UIButton = UIButton(type: .system)
     let ScheduleWishButton: UIButton = UIButton(type: .system)
-    
+        
     let sliderRed = CustomSlider(title: Constants.red, min: Constants.colorMin, max: Constants.colorMax)
     let sliderGreen = CustomSlider(title: Constants.green, min: Constants.colorMin, max: Constants.colorMax)
     let sliderBlue = CustomSlider(title: Constants.blue, min: Constants.colorMin, max: Constants.colorMax)
@@ -53,7 +56,7 @@ class WishMakerViewController: UIViewController, UIColorPickerViewControllerDele
         configureButtons()
         configureSliders()
         
-        ChangeColors(color: color, sliderRed: sliderRed, sliderGreen: sliderGreen, sliderBlue: sliderBlue)
+        ChangeColors(color: color)
     }
     
     // MARK: - configure all buttons
@@ -61,6 +64,7 @@ class WishMakerViewController: UIViewController, UIColorPickerViewControllerDele
         configureScheduleWishButton()
         configureShowWishButton()
         configureHideButton()
+        configurePreviousColorButton()
         configureRandomColorButton()
         configureColorPickerButton()
     }
@@ -110,6 +114,23 @@ class WishMakerViewController: UIViewController, UIColorPickerViewControllerDele
         hideButton.pinBottom(to: showWishButton.topAnchor, Constants.buttonsBottomAnchor)
     }
     
+    //MARK: - configure previousColor button
+    private func configurePreviousColorButton() {
+        previousColorButton.setTitle(Constants.previousColorButtonTitle, for: .normal)
+        previousColorButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: Constants.buttonsTitleFontSize)
+        previousColorButton.setTitleColor(.black, for: .normal)
+        previousColorButton.backgroundColor = Constants.viewColor
+        previousColorButton.layer.cornerRadius = Constants.buttonsCornerRadius
+        previousColorButton.addTarget(self, action: #selector(previousColorButtonPressed), for: .touchUpInside)
+        
+        previousColorButton.isEnabled = false
+        
+        view.addSubview(previousColorButton)
+        previousColorButton.setHeight(Constants.buttonsHeightAnchor)
+        previousColorButton.pinHorizontal(to: view, Constants.leadingAnchor)
+        previousColorButton.pinBottom(to: hideButton.topAnchor, Constants.buttonsBottomAnchor)
+    }
+    
     // MARK: - configure randomColor button
     private func configureRandomColorButton() {
         randomColorButton.setTitle(Constants.randomColorButtonTitle, for: .normal)
@@ -122,7 +143,7 @@ class WishMakerViewController: UIViewController, UIColorPickerViewControllerDele
         view.addSubview(randomColorButton)
         randomColorButton.setHeight(Constants.buttonsHeightAnchor)
         randomColorButton.pinHorizontal(to: view, Constants.leadingAnchor)
-        randomColorButton.pinBottom(to: hideButton.topAnchor, Constants.buttonsBottomAnchor)
+        randomColorButton.pinBottom(to: previousColorButton.topAnchor, Constants.buttonsBottomAnchor)
     }
     
     // MARK: - configure colorPicker button
@@ -237,30 +258,28 @@ class WishMakerViewController: UIViewController, UIColorPickerViewControllerDele
         self.slidersStack.isHidden = !self.slidersStack.isHidden
     }
     
+    
+    //MARK: - previousColorButton was pressed
+    @objc
+    private func previousColorButtonPressed() {
+        AnimateColorChange(color: previousColor)
+        self.previousColorButton.isEnabled = false
+    }
+    
     //MARK: - randomColorButton was pressed
     @objc
     private func randomColorButtonPressed() {
-        let color = UIColor(
+        previousColor = view.backgroundColor!
+        self.previousColorButton.isEnabled = true
+        
+        let previousColor = UIColor(
             red: .random(in: Constants.colorMin...Constants.colorMax),
             green: .random(in: Constants.colorMin...Constants.colorMax),
             blue: .random(in: Constants.colorMin...Constants.colorMax),
             alpha: Constants.alphaValue
         )
         
-        UIView.animate(
-            withDuration: Constants.randomColorAnimationDur,
-            animations: {
-                self.ChangeColors(
-                    color: color,
-                    sliderRed: self.sliderRed,
-                    sliderGreen: self.sliderGreen,
-                    sliderBlue: self.sliderBlue
-                )
-            },
-            completion: { [weak self] _ in
-                self?.randomColorButton.isEnabled = true
-            }
-        )
+        AnimateColorChange(color: previousColor)
     }
     
     //MARK: - colorPickerButton was pressed
@@ -277,12 +296,7 @@ class WishMakerViewController: UIViewController, UIColorPickerViewControllerDele
     @available(iOS 14.0, *)
     internal func colorPickerViewControllerDidSelectColor(_ viewController: UIColorPickerViewController) {
         UIView.animate(withDuration: Constants.colorPickerAnimationDur) {
-            self.ChangeColors(
-                color: viewController.selectedColor,
-                sliderRed: self.sliderRed,
-                sliderGreen: self.sliderGreen,
-                sliderBlue: self.sliderBlue
-            )
+            self.ChangeColors(color: viewController.selectedColor)
         }
     }
     
@@ -295,7 +309,7 @@ class WishMakerViewController: UIViewController, UIColorPickerViewControllerDele
             blue: CGFloat(self.sliderBlue.slider.value), alpha: Constants.alphaValue
         )
         
-        self.ChangeColors(color: color, sliderRed: self.sliderRed, sliderGreen: self.sliderGreen, sliderBlue: self.sliderBlue)
+        self.ChangeColors(color: color)
     }
     
     //MARK: - colorLabel was tapped
@@ -338,12 +352,24 @@ class WishMakerViewController: UIViewController, UIColorPickerViewControllerDele
         return [Constants.defaultComponent, Constants.defaultComponent, Constants.defaultComponent]
     }
     
+    private func AnimateColorChange(color: UIColor) {
+        UIView.animate(
+            withDuration: Constants.randomColorAnimationDur,
+            animations: {
+                self.ChangeColors(color: color)
+            },
+            completion: { [weak self] _ in
+                self?.randomColorButton.isEnabled = true
+            }
+        )
+    }
+    
     // MARK: - ChangeColors method
-    private func ChangeColors(color: UIColor, sliderRed: CustomSlider, sliderGreen: CustomSlider, sliderBlue: CustomSlider) {
+    private func ChangeColors(color: UIColor) {
         view.backgroundColor = color
-        sliderRed.slider.minimumTrackTintColor = color
-        sliderGreen.slider.minimumTrackTintColor = color
-        sliderBlue.slider.minimumTrackTintColor = color
+        self.sliderRed.slider.minimumTrackTintColor = color
+        self.sliderGreen.slider.minimumTrackTintColor = color
+        self.sliderBlue.slider.minimumTrackTintColor = color
         
         let backgroundColorComponents = self.getBackgroundColor()
         

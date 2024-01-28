@@ -37,6 +37,7 @@ enum Constants {
     static let buttonsViewBottomAnchor: CGFloat = 30
     static let buttonsBottomAnchor: CGFloat = 5
     
+    static let previousColorButtonTitle: String = "Set previous random color"
     static let hideButtonTitle: String = "Hide sliders"
     static let randomColorButtonTitle: String = "Set random color"
     static let colorPickerButtonTitle: String = "Use iOS color picker"
@@ -62,6 +63,7 @@ enum Constants {
     static let titleTopAnchor: CGFloat = -35
     
     static let wishTextFieldTopAnchor: CGFloat = 15
+    static let defaultPreviousColor: UIColor = .black
     
     static let description: String =
     """
