@@ -52,7 +52,9 @@ final class WishStoringViewController: UIViewController, UISheetPresentationCont
         
         addWishTextField.attributedPlaceholder = NSAttributedString(
             string: editingRowBool ? Constants.editWishTextFieldPlaceholder : Constants.addWishTextFieldPlaceholder,
-            attributes: [.foregroundColor: UIColor.gray])
+            attributes: [.foregroundColor: UIColor.gray]
+        )
+        
         addWishTextField.textColor = .black
         addWishTextField.textAlignment = .center
         addWishTextField.backgroundColor = Constants.viewColor
@@ -178,6 +180,10 @@ final class WishStoringViewController: UIViewController, UISheetPresentationCont
         defaults.set(wishArray, forKey: Constants.wishArrayKey)
         table.reloadData()
     }
+    
+    func createWishEvent() {
+        present(WishEventCreationViewController(), animated: true)
+    }
 }
 
 //MARK: - WishStoringViewController extension
@@ -201,6 +207,9 @@ extension WishStoringViewController: UITableViewDataSource {
         }
         wishCell.editButtonTapAction = { [weak self] in
             self?.editRow(rowIndex: indexPath.row)
+        }
+        wishCell.scheduleButtonTapAction = { [weak self] in
+            self?.createWishEvent()
         }
         
         wishCell.configure(wish: wishArray[indexPath.row], rowIndex: indexPath.row)

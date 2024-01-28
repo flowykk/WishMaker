@@ -223,7 +223,7 @@ class WishMakerViewController: UIViewController, UIColorPickerViewControllerDele
         slidersStack.layer.cornerRadius = Constants.slidersCornerRadius
         slidersStack.clipsToBounds = true
         
-        for slider in [sliderRed, sliderBlue, sliderGreen] {
+        for slider in [sliderRed, sliderGreen, sliderBlue] {
             slidersStack.addArrangedSubview(slider)
         }
         
@@ -373,17 +373,33 @@ class WishMakerViewController: UIViewController, UIColorPickerViewControllerDele
         
         let backgroundColorComponents = self.getBackgroundColor()
         
+        let red = backgroundColorComponents[Constants.redComponent]
+        let green = backgroundColorComponents[Constants.greenComponent]
+        let blue = backgroundColorComponents[Constants.blueComponent]
+        
+        let inverseColor = UIColor(
+            red: 1.0 - red,
+            green: 1.0 - green,
+            blue: blue,
+            alpha: Constants.alphaValue
+        )
+        
+        titleLabel.textColor = inverseColor
+        descriptionLabel.textColor = inverseColor
+        colorLabel.textColor = inverseColor
+        colorDescriptionLabel.textColor = inverseColor
+        
         let hexString = String.init(
             format: Constants.colorLabelFormat,
-            lroundf(Float(backgroundColorComponents[Constants.redComponent] * Constants.maxColorNumber)),
-            lroundf(Float(backgroundColorComponents[Constants.greenComponent] * Constants.maxColorNumber)),
-            lroundf(Float(backgroundColorComponents[Constants.blueComponent] * Constants.maxColorNumber))
+            lroundf(Float(red * Constants.maxColorNumber)),
+            lroundf(Float(green * Constants.maxColorNumber)),
+            lroundf(Float(blue * Constants.maxColorNumber))
         )
         self.colorLabel.text = hexString
         
-        self.sliderRed.slider.value = Float(backgroundColorComponents[Constants.redComponent])
-        self.sliderGreen.slider.value = Float(backgroundColorComponents[Constants.greenComponent])
-        self.sliderBlue.slider.value = Float(backgroundColorComponents[Constants.blueComponent])
+        self.sliderRed.slider.value = Float(red)
+        self.sliderGreen.slider.value = Float(green)
+        self.sliderBlue.slider.value = Float(blue)
     }
 }
 

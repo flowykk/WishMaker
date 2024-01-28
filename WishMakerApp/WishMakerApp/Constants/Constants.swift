@@ -32,7 +32,7 @@ enum Constants {
     static let defaultComponent: CGFloat = 0
     
     static let buttonsTitleFontSize: CGFloat = 17
-    static let buttonsCornerRadius: CGFloat = 20
+    static let buttonsCornerRadius: CGFloat = 22
     static let buttonsHeightAnchor: CGFloat = 45
     static let buttonsViewBottomAnchor: CGFloat = 30
     static let buttonsBottomAnchor: CGFloat = 5
@@ -84,7 +84,7 @@ enum Constants {
     static let colorPickerAnimationDur: Double = 0.5
     
     static let wrapColor: UIColor = Constants.viewColor
-    static let wrapRadius: CGFloat = 17
+    static let wrapRadius: CGFloat = 20
     static let wrapOffsetV: CGFloat = 5
     static let wrapOffsetH: CGFloat = 10
     static let wishLabelOffset: CGFloat = 10
@@ -109,11 +109,12 @@ enum Constants {
     static let wishDeleteButtonRightAnchor: CGFloat = 10
     static let wishEditButtonRightAnchor: CGFloat = 5
     
+    static let scheduleWishIcon: String = "calendar.circle.fill"
     static let wishDeleteIcon: String = "minus.circle.fill"
     static let wishEditIcon: String = "pencil.circle.fill"
     
-    static let wishLabelLeftAnchor: CGFloat = 10
-    static let wishLabelRightAnchor: CGFloat = 50
+    static let wishLabelLeftAnchor: CGFloat = 15
+    static let wishLabelRightAnchor: CGFloat = 80
     
     static let defaultEditingRowFlag: Int = -1
 }

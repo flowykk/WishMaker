@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D44FFFA2B66C7C600FFEF0E /* WishEventCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D44FFF92B66C7C600FFEF0E /* WishEventCreationViewController.swift */; };
 		0DE129882B656A1900F5429D /* WrittenWishCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE129872B656A1900F5429D /* WrittenWishCell.swift */; };
 		0DE1298A2B656A2900F5429D /* WishStoringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE129892B656A2900F5429D /* WishStoringViewController.swift */; };
 		0DE1298C2B656A3B00F5429D /* WishMakerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE1298B2B656A3B00F5429D /* WishMakerViewController.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D44FFF92B66C7C600FFEF0E /* WishEventCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishEventCreationViewController.swift; sourceTree = "<group>"; };
 		0DE129872B656A1900F5429D /* WrittenWishCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrittenWishCell.swift; sourceTree = "<group>"; };
 		0DE129892B656A2900F5429D /* WishStoringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishStoringViewController.swift; sourceTree = "<group>"; };
 		0DE1298B2B656A3B00F5429D /* WishMakerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishMakerViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				83D2BA802B63EE2600E8908D /* Assets.xcassets */,
 				83D2BA822B63EE2600E8908D /* LaunchScreen.storyboard */,
 				83D2BA852B63EE2600E8908D /* Info.plist */,
+				0D44FFF92B66C7C600FFEF0E /* WishEventCreationViewController.swift */,
 			);
 			path = WishMakerApp;
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 				0DE1298A2B656A2900F5429D /* WishStoringViewController.swift in Sources */,
 				0DE1299A2B656ABC00F5429D /* Constants.swift in Sources */,
 				0DE129982B656AAD00F5429D /* CustomSlider.swift in Sources */,
+				0D44FFFA2B66C7C600FFEF0E /* WishEventCreationViewController.swift in Sources */,
 				0DE129882B656A1900F5429D /* WrittenWishCell.swift in Sources */,
 				0DE129962B656A9F00F5429D /* SceneDelegate.swift in Sources */,
 				0DE129942B656A8A00F5429D /* UIViewPin.swift in Sources */,

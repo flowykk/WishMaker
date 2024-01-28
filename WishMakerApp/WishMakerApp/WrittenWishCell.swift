@@ -12,13 +12,16 @@ final class WrittenWishCell: UITableViewCell {
     //MARK: - fields
     static let reuseId: String = Constants.wishCellReuseId
     private let wishLabel: UILabel = UILabel()
+    
     private let wishDeleteButton: UIButton = UIButton()
     private let wishEditButton: UIButton = UIButton()
+    private let scheduleWishButton: UIButton = UIButton()
     
     private let wishStoringView = WishStoringViewController()
         
     var deleteButtonTapAction: (() -> Void)?
     var editButtonTapAction: (() -> Void)?
+    var scheduleButtonTapAction: (() -> Void)?
     
     let wrap: UIView = UIView()
     
@@ -40,7 +43,10 @@ final class WrittenWishCell: UITableViewCell {
         wishLabel.text = wish
         wishLabel.textColor = .black
         
-        wishDeleteButton.setImage(UIImage(systemName: Constants.wishDeleteIcon)?.withTintColor(.red, renderingMode: .alwaysOriginal), for: .normal)
+        wishDeleteButton.setImage(UIImage(systemName: Constants.wishDeleteIcon)?.withTintColor(
+            .red,
+            renderingMode: .alwaysOriginal
+        ), for: .normal)
         wishDeleteButton.setTitleColor(.white, for: .normal)
         wishDeleteButton.addTarget(self, action: #selector(wishDeleteButtonPressed), for: .touchUpInside)
         wishDeleteButton.tag = rowIndex
@@ -48,16 +54,19 @@ final class WrittenWishCell: UITableViewCell {
         wishEditButton.setImage(UIImage(systemName: Constants.wishEditIcon), for: .normal)
         wishEditButton.setTitleColor(.white, for: .normal)
         wishEditButton.addTarget(self, action: #selector(wishEditButtonPressed), for: .touchUpInside)
+        
+        scheduleWishButton.setImage(UIImage(systemName: Constants.scheduleWishIcon)?.withTintColor(
+            .systemGreen,
+            renderingMode: .alwaysOriginal
+        ), for: .normal)
+        scheduleWishButton.setTitleColor(.white, for: .normal)
+        scheduleWishButton.addTarget(self, action: #selector(scheduleWishButtonPressed), for: .touchUpInside)
     }
     
     //MARK: - configure UI
     private func configureUI() {
         selectionStyle = .none
         backgroundColor = .clear
-        
-        //let wrap: UIView = UIView()
-        //wishStoringView.wraps.append(wrap)
-        //print(wishStoringView.wraps)
         
         wrap.backgroundColor = .white
         wrap.layer.cornerRadius = Constants.wrapRadius
@@ -73,6 +82,10 @@ final class WrittenWishCell: UITableViewCell {
         wrap.addSubview(wishEditButton)
         wishEditButton.pinRight(to: wishDeleteButton.leadingAnchor, Constants.wishEditButtonRightAnchor)
         wishEditButton.pinCenterY(to: wrap)
+        
+        wrap.addSubview(scheduleWishButton)
+        scheduleWishButton.pinRight(to: wishEditButton.leadingAnchor, Constants.wishEditButtonRightAnchor)
+        scheduleWishButton.pinCenterY(to: wrap)
         
         wrap.addSubview(wishLabel)
         wishLabel.pinVertical(to: wrap, Constants.wishLabelOffset)
@@ -90,6 +103,11 @@ final class WrittenWishCell: UITableViewCell {
     @objc
     private func wishEditButtonPressed() {
         editButtonTapAction?()
+    }
+    
+    @objc
+    private func scheduleWishButtonPressed() {
+        scheduleButtonTapAction?()
     }
 }
 
