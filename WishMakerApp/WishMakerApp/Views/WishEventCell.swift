@@ -65,7 +65,7 @@ final class WishEventCell: UICollectionViewCell {
         descriptionLabel.textColor = .black
         
         wrapView.addSubview(descriptionLabel)
-        descriptionLabel.pinTop(to: titleLabel.bottomAnchor, 5)
+        descriptionLabel.pinTop(to: titleLabel.bottomAnchor, 3)
         descriptionLabel.pinCenterX(to: wrapView)
     }
     

@@ -367,9 +367,6 @@ class WishMakerViewController: UIViewController, UIColorPickerViewControllerDele
     // MARK: - ChangeColors method
     private func ChangeColors(color: UIColor) {
         view.backgroundColor = color
-        self.sliderRed.slider.minimumTrackTintColor = color
-        self.sliderGreen.slider.minimumTrackTintColor = color
-        self.sliderBlue.slider.minimumTrackTintColor = color
         
         let backgroundColorComponents = self.getBackgroundColor()
         
@@ -380,26 +377,74 @@ class WishMakerViewController: UIViewController, UIColorPickerViewControllerDele
         let inverseColor = UIColor(
             red: 1.0 - red,
             green: 1.0 - green,
-            blue: blue,
+            blue: 1.0 - blue,
             alpha: Constants.alphaValue
         )
         
-        titleLabel.textColor = inverseColor
-        descriptionLabel.textColor = inverseColor
-        colorLabel.textColor = inverseColor
-        colorDescriptionLabel.textColor = inverseColor
-        
-        let hexString = String.init(
+        changeColorLabel(String.init(
             format: Constants.colorLabelFormat,
             lroundf(Float(red * Constants.maxColorNumber)),
             lroundf(Float(green * Constants.maxColorNumber)),
             lroundf(Float(blue * Constants.maxColorNumber))
-        )
-        self.colorLabel.text = hexString
+        ))
         
+        changeSlidersValues(red, green, blue)
+        changeSlidersColors(inverseColor)
+        
+        changeLabelsColors(inverseColor)
+        
+        changeButtonsColors(color, inverseColor)
+    }
+    
+    private func changeColorLabel(_ hexString: String) {
+        self.colorLabel.text = hexString
+    }
+    
+    //MARK:- function for changing values of sliders
+    private func changeSlidersValues(_ red: CGFloat, _ green: CGFloat, _ blue: CGFloat) {
         self.sliderRed.slider.value = Float(red)
         self.sliderGreen.slider.value = Float(green)
         self.sliderBlue.slider.value = Float(blue)
+    }
+    
+    //MARK: - function for changing colors of sliders
+    private  func changeSlidersColors(_ inverseColor: UIColor) {
+        self.sliderRed.slider.minimumTrackTintColor = inverseColor
+        self.sliderGreen.slider.minimumTrackTintColor = inverseColor
+        self.sliderBlue.slider.minimumTrackTintColor = inverseColor
+        
+        self.sliderRed.titleView.textColor = inverseColor
+        self.sliderGreen.titleView.textColor = inverseColor
+        self.sliderBlue.titleView.textColor = inverseColor
+    }
+    
+    //MARK: - functionfor changing colors of Labels
+    private func changeLabelsColors(_ inverseColor: UIColor) {
+        titleLabel.textColor = inverseColor
+        descriptionLabel.textColor = inverseColor
+        colorLabel.textColor = inverseColor
+        colorDescriptionLabel.textColor = inverseColor
+    }
+    
+    //MARK: - function for changing colors of Buttons
+    private func changeButtonsColors(_ color: UIColor, _ inverseColor: UIColor) {
+        self.randomColorButton.setTitleColor(color, for: .normal)
+        self.randomColorButton.backgroundColor = inverseColor
+        
+        self.previousColorButton.setTitleColor(color, for: .normal)
+        self.previousColorButton.backgroundColor = inverseColor
+        
+        self.colorPickerButton.setTitleColor(color, for: .normal)
+        self.colorPickerButton.backgroundColor = inverseColor
+        
+        self.hideButton.setTitleColor(color, for: .normal)
+        self.hideButton.backgroundColor = inverseColor
+        
+        self.showWishButton.setTitleColor(color, for: .normal)
+        self.showWishButton.backgroundColor = inverseColor
+        
+        self.ScheduleWishButton.setTitleColor(color, for: .normal)
+        self.ScheduleWishButton.backgroundColor = inverseColor
     }
 }
 
