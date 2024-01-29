@@ -55,12 +55,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0DE1299B2B656B0200F5429D /* fonts */ = {
+		0DB85F9F2B679C7B00483D80 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0DE1298B2B656A3B00F5429D /* WishMakerViewController.swift */,
+				0DE129892B656A2900F5429D /* WishStoringViewController.swift */,
+				0DE129912B656A6F00F5429D /* WishCalendarViewController.swift */,
+				0D44FFF92B66C7C600FFEF0E /* WishEventCreationViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0DB85FA02B679CB400483D80 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0DE129872B656A1900F5429D /* WrittenWishCell.swift */,
+				0DE1298F2B656A5C00F5429D /* WishEventCell.swift */,
+				0DE129972B656AAD00F5429D /* CustomSlider.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0DB85FA12B679CE100483D80 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0DE1298D2B656A4900F5429D /* WishEventModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0DB85FA22B679D1F00483D80 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				0DE129932B656A8A00F5429D /* UIViewPin.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		0DE1299B2B656B0200F5429D /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
 				0DE1299D2B656D2900F5429D /* SFMono-Regular.otf */,
 			);
-			path = fonts;
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		0DE1299F2B656D4A00F5429D /* Constants */ = {
@@ -90,22 +127,17 @@
 		83D2BA762B63EE2100E8908D /* WishMakerApp */ = {
 			isa = PBXGroup;
 			children = (
-				0DE1299B2B656B0200F5429D /* fonts */,
+				0DE1299B2B656B0200F5429D /* Fonts */,
 				83D2BA772B63EE2100E8908D /* AppDelegate.swift */,
 				0DE129952B656A9F00F5429D /* SceneDelegate.swift */,
-				0DE1298B2B656A3B00F5429D /* WishMakerViewController.swift */,
-				0DE129872B656A1900F5429D /* WrittenWishCell.swift */,
-				0DE129892B656A2900F5429D /* WishStoringViewController.swift */,
-				0DE1298D2B656A4900F5429D /* WishEventModel.swift */,
-				0DE1298F2B656A5C00F5429D /* WishEventCell.swift */,
-				0DE129912B656A6F00F5429D /* WishCalendarViewController.swift */,
-				0DE129932B656A8A00F5429D /* UIViewPin.swift */,
-				0DE129972B656AAD00F5429D /* CustomSlider.swift */,
+				0DB85FA02B679CB400483D80 /* Views */,
+				0DB85FA12B679CE100483D80 /* Models */,
+				0DB85F9F2B679C7B00483D80 /* Controllers */,
+				0DB85FA22B679D1F00483D80 /* Tools */,
 				0DE1299F2B656D4A00F5429D /* Constants */,
 				83D2BA802B63EE2600E8908D /* Assets.xcassets */,
 				83D2BA822B63EE2600E8908D /* LaunchScreen.storyboard */,
 				83D2BA852B63EE2600E8908D /* Info.plist */,
-				0D44FFF92B66C7C600FFEF0E /* WishEventCreationViewController.swift */,
 			);
 			path = WishMakerApp;
 			sourceTree = "<group>";

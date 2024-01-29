@@ -8,13 +8,27 @@
 import UIKit
 
 class WishCalendarViewController: UIViewController {
+    let titleLabel = UILabel()
+    
     private let collectionView: UICollectionView = UICollectionView(
         frame: .zero,
-        collectionViewLayout: UICollectionViewLayout()
+        collectionViewLayout: UICollectionViewFlowLayout()
     )
     
     override func viewDidLoad() {
+        configureTitleLabel()
         configureCollection()
+    }
+    
+    private func configureTitleLabel() {
+        titleLabel.text = "Your wishes schedule"
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 30)
+        titleLabel.textColor = .white
+        titleLabel.textAlignment = .center
+        
+        view.addSubview(titleLabel)
+        titleLabel.pinCenterX(to: view)
+        titleLabel.pinTop(to: view.safeAreaLayoutGuide.topAnchor, 5)
     }
     
     private func configureCollection() {
@@ -23,22 +37,21 @@ class WishCalendarViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.backgroundColor = .clear
+        collectionView.layer.cornerRadius = 25
         collectionView.alwaysBounceVertical = true
         collectionView.showsVerticalScrollIndicator = false
-        collectionView.contentInset = UIEdgeInsets(top: 0, left: 10, bottom: 10, right: 10) //Constants.contentInset
-        /* Temporary line */
+        //collectionView.contentInset = UIEdgeInsets(top: 0, left: 4, bottom: 100, right: 3)
+        
         if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.minimumInteritemSpacing = 0
             layout.minimumLineSpacing = 0
             layout.invalidateLayout()
         }
-        /* Temporary line */
-        //collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         
         view.addSubview(collectionView)
         collectionView.pinHorizontal(to: view)
-        collectionView.pinBottom(to: view.safeAreaLayoutGuide.bottomAnchor)
-        collectionView.pinTop(to: view.safeAreaLayoutGuide.topAnchor, 5) //Constants.collectionTop)
+        collectionView.pinBottom(to: view.safeAreaLayoutGuide.bottomAnchor, -35)
+        collectionView.pinTop(to: titleLabel.bottomAnchor, 20)
         
         collectionView.register(
             WishEventCell.self,
@@ -86,7 +99,7 @@ extension WishCalendarViewController: UICollectionViewDelegateFlowLayout {
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
         // Adjust cell size as needed
-        return CGSize(width: collectionView.bounds.width - 10, height: 100)
+        return CGSize(width: collectionView.bounds.width - 25, height: 150)
     }
     
     func collectionView(

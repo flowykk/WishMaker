@@ -42,43 +42,51 @@ final class WishEventCell: UICollectionViewCell {
     
     // MARK: - UI Configuration
     private func configureWrap() {
-        addSubview(wrapView)
-        wrapView.pin(to: self, 40)
-        wrapView.setWidth(40)
-        wrapView.setHeight(40)
         wrapView.layer.cornerRadius = 15
-        wrapView.backgroundColor = .blue
+        wrapView.backgroundColor = .white
+        
+        addSubview(wrapView)
+        wrapView.pin(to: self, 3)
     }
     
+    //MARK: - configure titleLabel
     private func configureTitleLabel() {
-        titleLabel.font = UIFont.boldSystemFont(ofSize: Constants.titleFontSize)
-        titleLabel.textColor = .green
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 25)
+        titleLabel.textColor = .black
         
-        addSubview(titleLabel)
+        wrapView.addSubview(titleLabel)
         titleLabel.pinTop(to: wrapView, 15)
+        titleLabel.pinCenterX(to: wrapView)
     }
     
+    //MARK: - configure descriptionLabel
     private func configureDescriptionLabel() {
-        descriptionLabel.font = UIFont.boldSystemFont(ofSize: Constants.titleFontSize)
-        descriptionLabel.textColor = .green
+        descriptionLabel.font = UIFont(name: "SFMono-Regular", size: 16)
+        descriptionLabel.textColor = .black
         
-        addSubview(descriptionLabel)
-        descriptionLabel.pinTop(to: titleLabel.bottomAnchor, 15)
+        wrapView.addSubview(descriptionLabel)
+        descriptionLabel.pinTop(to: titleLabel.bottomAnchor, 5)
+        descriptionLabel.pinCenterX(to: wrapView)
     }
     
+    //MARK: - configure startDateLabel
     private func configureStartDateLabel() {
-        startDateLabel.font = UIFont.boldSystemFont(ofSize: Constants.titleFontSize)
-        startDateLabel.textColor = .green
+        startDateLabel.font = UIFont(name: "SFMono-Regular", size: 13)
+        startDateLabel.textColor = .black
         
-        addSubview(startDateLabel)
-        startDateLabel.pinTop(to: descriptionLabel.bottomAnchor, 15)
+        wrapView.addSubview(startDateLabel)
+        startDateLabel.pinTop(to: descriptionLabel.bottomAnchor, 20)
+        startDateLabel.pinLeft(to: wrapView.leadingAnchor, 15)
     }
     
+    //MARK: - configure endDateLabel
     private func configureEndDateLabel() {
-        endDateLabel.font = UIFont.boldSystemFont(ofSize: Constants.titleFontSize)
-        endDateLabel.textColor = .green
+        endDateLabel.font = UIFont(name: "SFMono-Regular", size: 13)
+        endDateLabel.textColor = .black
         
-        addSubview(endDateLabel)
-        endDateLabel.pinTop(to: startDateLabel.bottomAnchor, 15)
+        wrapView.addSubview(endDateLabel)
+        endDateLabel.pinTop(to: startDateLabel.bottomAnchor, 5)
+        endDateLabel.pinLeft(to: wrapView.leadingAnchor, 15)
+
     }
 }

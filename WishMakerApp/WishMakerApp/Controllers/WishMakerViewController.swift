@@ -14,7 +14,7 @@ class WishMakerViewController: UIViewController, UIColorPickerViewControllerDele
     var alertController: UIAlertController?
     var baseMessage: String?
     
-    var previousColor = Constants.defaultPreviousColor
+    var previousColor: UIColor = .black
 
     let slidersStack = UIStackView()
     

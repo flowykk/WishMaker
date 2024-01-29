@@ -32,7 +32,7 @@ enum Constants {
     static let defaultComponent: CGFloat = 0
     
     static let buttonsTitleFontSize: CGFloat = 17
-    static let buttonsCornerRadius: CGFloat = 22
+    static let buttonsCornerRadius: CGFloat = 18
     static let buttonsHeightAnchor: CGFloat = 45
     static let buttonsViewBottomAnchor: CGFloat = 30
     static let buttonsBottomAnchor: CGFloat = 5
@@ -63,7 +63,6 @@ enum Constants {
     static let titleTopAnchor: CGFloat = -35
     
     static let wishTextFieldTopAnchor: CGFloat = 15
-    static let defaultPreviousColor: UIColor = .black
     
     static let description: String =
     """
@@ -77,7 +76,7 @@ enum Constants {
     static let descriptionFontSize: CGFloat = 15
     static let descriptionTopAnchor: CGFloat = 10
     
-    static let slidersCornerRadius: Double = 25
+    static let slidersCornerRadius: Double = 18
     static let slidersBottomAnchor: CGFloat = 5
     
     static let randomColorAnimationDur: Double = 0.3
@@ -95,7 +94,7 @@ enum Constants {
     static let editWishTextFieldPlaceholder: String = "Edit your wish here!"
     static let addWishTextFieldPlaceholder: String = "Type your wish here!"
     
-    static let tableCornerRadius: CGFloat = 25
+    static let tableCornerRadius: CGFloat = 18
     static let tableTopAnchor: CGFloat = 5
     static let tableBottomAnchor: CGFloat = 0
     static let tableHOffset: CGFloat = 10
