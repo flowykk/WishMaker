@@ -16,12 +16,12 @@ final class WishStoringViewController: UIViewController, UISheetPresentationCont
     private var wishArray: [String] = []
     
     private var editingRow: Int = Constants.defaultEditingRowFlag
+
+    var wraps: [UIView] = []
     
     let addWishTextField: UITextField = UITextField()
     let addWishButton: UIButton = UIButton(type: .system)
     let clearTableButton: UIButton = UIButton(type: .system)
-    
-    var wraps: [UIView] = []
     
     @available(iOS 15.0, *)
     var wishStoringController: UISheetPresentationController {
@@ -31,7 +31,8 @@ final class WishStoringViewController: UIViewController, UISheetPresentationCont
     // MARK: - viewDidLoad func
     override func viewDidLoad() {
         wishArray = (defaults.array(forKey: Constants.wishArrayKey) as? [String] ?? [])
-        view.backgroundColor = generateRandomColor()
+        
+        view.backgroundColor = wishMakerView.view.backgroundColor
         
         if #available(iOS 15.0, *) {
             sheetPresentationController?.delegate = self
@@ -100,7 +101,7 @@ final class WishStoringViewController: UIViewController, UISheetPresentationCont
     
     //MARK: - configure table
     private func configureTable() {
-        table.backgroundColor = view.backgroundColor
+        table.backgroundColor = .clear
         table.dataSource = self
         table.separatorStyle = .none
         table.layer.cornerRadius = Constants.tableCornerRadius
@@ -216,14 +217,4 @@ extension WishStoringViewController: UITableViewDataSource {
         
         return wishCell
     }
-}
-
-//MARK: - generating random color method
-private func generateRandomColor() -> UIColor {
-    return UIColor(
-        red: .random(in: Constants.colorMin...Constants.colorMax),
-        green: .random(in: Constants.colorMin...Constants.colorMax),
-        blue: .random(in: Constants.colorMin...Constants.colorMax),
-        alpha: Constants.alphaValue
-    )
 }

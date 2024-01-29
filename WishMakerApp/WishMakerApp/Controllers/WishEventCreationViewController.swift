@@ -29,6 +29,9 @@ final class WishEventCreationViewController: UIViewController, UISheetPresentati
     let endDateLabel = UILabel()
     let endDatePicker = UIDatePicker()
     
+    let wishDescriptionLabel = UILabel()
+    let wishDescriptionTextField: UITextField = UITextField()
+    
     let continueButton = UIButton()
     
     let randomColor = generateRandomColor()
@@ -56,6 +59,9 @@ final class WishEventCreationViewController: UIViewController, UISheetPresentati
         configureEndDateLabel()
         configureEndDatePicker()
         
+        configureWishDescriptionLabel()
+        configureWishDescriptionTextField()
+        
         configureContinueButton()
         configureWarningLabel()
     }
@@ -73,10 +79,10 @@ final class WishEventCreationViewController: UIViewController, UISheetPresentati
     }
     
     private func configureWrap() {
-        wrap.setWidth(300)
-        wrap.setHeight(250)
+        wrap.setHeight(350)
         
         view.addSubview(wrap)
+        wrap.pinHorizontal(to: view, 15)
         wrap.pinCenter(to: view)
     }
     
@@ -119,7 +125,6 @@ final class WishEventCreationViewController: UIViewController, UISheetPresentati
     
     //MARK: - configure picker for endDate
     private func configureEndDatePicker() {
-
         endDatePicker.datePickerMode = .date
         endDatePicker.minimumDate = .now.addingTimeInterval(24 * 60 * 60)
         endDatePicker.preferredDatePickerStyle = .compact
@@ -130,6 +135,30 @@ final class WishEventCreationViewController: UIViewController, UISheetPresentati
         endDatePicker.pinCenterX(to: wrap)
     }
     
+    //MARK: - configure label for WishDescription
+    private func configureWishDescriptionLabel() {
+        wishDescriptionLabel.text = "Add description"
+        wishDescriptionLabel.font = UIFont.boldSystemFont(ofSize: 20)
+        wishDescriptionLabel.textColor = randomColor //.black
+        wishDescriptionLabel.textAlignment = .center
+        
+        wrap.addSubview(wishDescriptionLabel)
+        wishDescriptionLabel.pinCenterX(to: wrap)
+        wishDescriptionLabel.pinTop(to: endDatePicker.bottomAnchor, 20)
+    }
+    
+    //MARK: - configure textField for wishDescription
+    private func configureWishDescriptionTextField() {
+        wishDescriptionTextField.placeholder = "Your description"
+        wishDescriptionTextField.textAlignment = .center
+
+        wrap.addSubview(wishDescriptionTextField)
+        wishDescriptionTextField.pinTop(to: wishDescriptionLabel.bottomAnchor, -30)
+        wishDescriptionTextField.pinHorizontal(to: wrap, 20)
+        wishDescriptionTextField.setHeight(100)
+    }
+    
+    //MARK: - configure warning label
     private func configureWarningLabel() {
         warningLabel.text = ""
         warningLabel.font = UIFont.boldSystemFont(ofSize: 15)
@@ -157,11 +186,14 @@ final class WishEventCreationViewController: UIViewController, UISheetPresentati
         continueButton.pinBottom(to: view.bottomAnchor, 40)
     }
     
+    
+    //MARK: - Continue button was pressed
     @objc
     private func continueButtonPressed() {
         dismiss(animated: true)
     }
     
+    //MARK: - function for comparing dates
     private func compareDates() -> Bool {
         let startDate = startDatePicker.date
         let endDate = endDatePicker.date

@@ -21,7 +21,7 @@ class WishCalendarViewController: UIViewController {
     }
     
     private func configureTitleLabel() {
-        titleLabel.text = "Your wishes schedule"
+        titleLabel.text = "Your events"
         titleLabel.font = UIFont.boldSystemFont(ofSize: 30)
         titleLabel.textColor = .white
         titleLabel.textAlignment = .center
@@ -81,7 +81,7 @@ extension WishCalendarViewController: UICollectionViewDataSource {
         
         wishEventCell.configure(
             with: WishEventModel(
-                title: "Test",
+                wishTitle: "Test",
                 description: "Test description",
                 startDate: "Start date",
                 endDate: "End date"
@@ -99,7 +99,7 @@ extension WishCalendarViewController: UICollectionViewDelegateFlowLayout {
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
         // Adjust cell size as needed
-        return CGSize(width: collectionView.bounds.width - 25, height: 150)
+        return CGSize(width: collectionView.bounds.width - 25, height: 200)
     }
     
     func collectionView(

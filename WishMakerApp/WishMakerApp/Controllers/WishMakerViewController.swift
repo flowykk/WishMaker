@@ -352,6 +352,7 @@ class WishMakerViewController: UIViewController, UIColorPickerViewControllerDele
         return [Constants.defaultComponent, Constants.defaultComponent, Constants.defaultComponent]
     }
     
+    //MARK: - function for colorchange animation
     private func AnimateColorChange(color: UIColor) {
         UIView.animate(
             withDuration: Constants.randomColorAnimationDur,
@@ -396,6 +397,7 @@ class WishMakerViewController: UIViewController, UIColorPickerViewControllerDele
         changeButtonsColors(color, inverseColor)
     }
     
+    //MARK: - function for changing value of color label
     private func changeColorLabel(_ hexString: String) {
         self.colorLabel.text = hexString
     }

@@ -16,6 +16,8 @@ final class WishEventCell: UICollectionViewCell {
     private let startDateLabel: UILabel = UILabel()
     private let endDateLabel: UILabel = UILabel()
     
+    private let deleteButton: UIButton = UIButton()
+    
     //MARK: - Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,6 +27,8 @@ final class WishEventCell: UICollectionViewCell {
         configureDescriptionLabel()
         configureStartDateLabel()
         configureEndDateLabel()
+        
+        configureDeleteButton()
     }
     
     @available(*, unavailable)
@@ -34,7 +38,7 @@ final class WishEventCell: UICollectionViewCell {
     
     //MARK: - Cell configuration
     func configure(with event: WishEventModel) {
-        titleLabel.text = event.title
+        titleLabel.text = event.wishTitle
         descriptionLabel.text = event.description
         startDateLabel.text = "Start Date: \(event.startDate)"
         endDateLabel.text = "End Date: \(event.endDate)"
@@ -61,7 +65,7 @@ final class WishEventCell: UICollectionViewCell {
     
     //MARK: - configure descriptionLabel
     private func configureDescriptionLabel() {
-        descriptionLabel.font = UIFont(name: "SFMono-Regular", size: 16)
+        descriptionLabel.font = UIFont.systemFont(ofSize: 17) // UIFont(name: "SFMono-Regular", size: 16)
         descriptionLabel.textColor = .black
         
         wrapView.addSubview(descriptionLabel)
@@ -71,7 +75,7 @@ final class WishEventCell: UICollectionViewCell {
     
     //MARK: - configure startDateLabel
     private func configureStartDateLabel() {
-        startDateLabel.font = UIFont(name: "SFMono-Regular", size: 13)
+        startDateLabel.font = UIFont.systemFont(ofSize: 14) // UIFont(name: "SFMono-Regular", size: 13)
         startDateLabel.textColor = .black
         
         wrapView.addSubview(startDateLabel)
@@ -81,12 +85,25 @@ final class WishEventCell: UICollectionViewCell {
     
     //MARK: - configure endDateLabel
     private func configureEndDateLabel() {
-        endDateLabel.font = UIFont(name: "SFMono-Regular", size: 13)
+        endDateLabel.font = UIFont.systemFont(ofSize: 14) // UIFont(name: "SFMono-Regular", size: 13)
         endDateLabel.textColor = .black
         
         wrapView.addSubview(endDateLabel)
         endDateLabel.pinTop(to: startDateLabel.bottomAnchor, 5)
         endDateLabel.pinLeft(to: wrapView.leadingAnchor, 15)
-
+    }
+    
+    private func configureDeleteButton() {
+        deleteButton.setTitle(Constants.ScheduleWishButtonTitle, for: .normal)
+        deleteButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: Constants.buttonsTitleFontSize)
+        deleteButton.setTitleColor(.black, for: .normal)
+        deleteButton.backgroundColor = .systemRed
+        deleteButton.layer.cornerRadius = 15
+//        deleteButton.addTarget(self, action: #selector(scheduleWishButtonPressed), for: .touchUpInside)
+        
+        wrapView.addSubview(deleteButton)
+        deleteButton.setHeight(45)
+        deleteButton.pinHorizontal(to: wrapView, 13)
+        deleteButton.pinTop(to: endDateLabel.bottomAnchor, 11)
     }
 }

@@ -8,13 +8,13 @@
 import Foundation
 
 class WishEventModel {
-    var title: String
+    var wishTitle: String
     var description: String
     var startDate: String
     var endDate: String
     
-    init(title: String, description: String, startDate: String, endDate: String) {
-        self.title = title
+    init(wishTitle: String, description: String, startDate: String, endDate: String) {
+        self.wishTitle = wishTitle
         self.description = description
         self.startDate = startDate
         self.endDate = endDate
