@@ -12,7 +12,7 @@
 
 ## Wishes screen
 
-# Editing a wish
+### Editing a wish
 
 <div align="center">
   <img src="https://github.com/flowykk/WishMaker/assets/71427624/d4898486-67a0-497a-b244-4aeb888ce42e" width="300"> 
@@ -20,7 +20,7 @@
   <img src="https://github.com/flowykk/WishMaker/assets/71427624/78b8b1ef-e9aa-43e2-8ea0-440194f990bf" width="300"> 
 </div>
 
-# Scheduling a wish
+### Scheduling a wish
 
 <div align="center">
   <img src="https://github.com/flowykk/WishMaker/assets/71427624/6aa475b5-084b-4178-960c-73eff9e59e6e" width="300"> 
