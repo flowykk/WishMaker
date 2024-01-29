@@ -28,3 +28,8 @@
   <img src="https://github.com/flowykk/WishMaker/assets/71427624/7ed84d8e-c0a4-45ba-bfa1-6b6152a9c888" width="300"> 
 </div>
 
+## Scheduled events screen
+
+<div align="center">
+  <img src="https://github.com/flowykk/WishMaker/assets/71427624/50875a2e-6042-4326-a4b2-eef00bf1af18" width="300"> 
+</div>
