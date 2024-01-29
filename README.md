@@ -31,5 +31,6 @@
 ## Scheduled events screen
 
 <div align="center">
-  <img src="https://github.com/flowykk/WishMaker/assets/71427624/50875a2e-6042-4326-a4b2-eef00bf1af18" width="300"> 
+  <img src="https://github.com/flowykk/WishMaker/assets/71427624/996c61d7-2fdc-4ee8-b7c7-4ee9e718fd7f" width="300"> 
 </div>
+
