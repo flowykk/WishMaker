@@ -1,4 +1,5 @@
 
 *.xcuserstate
-*.DS_Store
-
+WishMakerApp/WishMakerApp/.DS_Store
+WishMakerApp/.DS_Store
+.DS_Store
