@@ -94,7 +94,7 @@ final class WishEventCell: UICollectionViewCell {
     }
     
     private func configureDeleteButton() {
-        deleteButton.setTitle(Constants.ScheduleWishButtonTitle, for: .normal)
+        deleteButton.setTitle("Delete event", for: .normal)
         deleteButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: Constants.buttonsTitleFontSize)
         deleteButton.setTitleColor(.black, for: .normal)
         deleteButton.backgroundColor = .systemRed
