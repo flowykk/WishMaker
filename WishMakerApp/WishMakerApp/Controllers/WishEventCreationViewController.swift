@@ -51,8 +51,18 @@ final class WishEventCreationViewController: UIViewController, UISheetPresentati
             sheetPresentationController?.prefersGrabberVisible = true
         }
         
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        
         configureUI()
     }
+
+    //MARK: - function to hide keyboard
+    @objc
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+
     //MARK: - configure UI
     private func configureUI() {
         configureTitleLabel()
