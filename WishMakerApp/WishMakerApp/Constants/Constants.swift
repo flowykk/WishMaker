@@ -116,4 +116,54 @@ enum Constants {
     static let wishLabelRightAnchor: CGFloat = 80
     
     static let defaultEditingRowFlag: Int = -1
+    
+    //MARK: - WishEventCreationViewController constants
+    static let createWishTitleFontSize: CGFloat = 30
+    static let createWishTitleTopAnchor: CGFloat = 35
+    
+    static let createWishLabelsFontSize: CGFloat = 20
+    
+    static let startDatePickerTopAnchor: CGFloat = 8
+    static let startDateKeyPath: String = "textColor"
+    
+    static let endDatePickerTopAnchor: CGFloat = 20
+    static let endDateLabel: String = "Select end date"
+    
+    static let createWishWrapHeight: CGFloat = 350
+    static let createWishWrapHOffset: CGFloat = 15
+    
+    static let timeAddingInterval: Double = 24 * 60 * 60
+    
+    static let warningLabelBottomAnchor: CGFloat = 20
+    static let warningLabelFontSize: CGFloat = 15
+    static let invalidDatesWarning: String = "Start date can't be later than End date"
+    static let invalidDescriptionWarning: String = "Description can't be empty"
+    
+    static let wishDescriptionLabelText: String = "Add description"
+    
+    static let wishDescriptionTextFieldTopAnchor: CGFloat = -30
+    static let wishDescriptionTextFieldHOffset: CGFloat = 20
+    static let wishDescriptionTextFieldHeight: CGFloat = 100
+    static let wishDescriptionTextFieldPlaceHolder = "Your description"
+    
+    static let continueButtonText: String = "Continue"
+    static let continueButtonFontSize: CGFloat = 20
+    static let continueButtonCornerRadius: CGFloat = 20
+    static let continueButtonHeight: CGFloat = 50
+    static let continueButtonWidth: CGFloat = 250
+    static let continueButtonBottomAnchor: CGFloat = 40
+    
+    //MARK: WishCalendarViewController constants
+    static let wishCalendarTitleLabelFontSize: CGFloat = 30
+    static let wishCalendarTitleLabelTopAnchor: CGFloat = 5
+    static let wishCalendatTitleText: String = "Your events"
+    
+    static let collectionViewCornerRadius: CGFloat = 25
+    static let layoutMinimumInteritemSpacing: CGFloat = 0
+    static let layoutMinimumLineSpacing: CGFloat = 0
+    static let collectionViewBottomAnchor: CGFloat = -35
+    static let collectionViewTopAnchor: CGFloat = 20
+    
+    static let collectionViewWidthBound: CGFloat = 25
+    static let collectionViewHeight: CGFloat = 200
 }

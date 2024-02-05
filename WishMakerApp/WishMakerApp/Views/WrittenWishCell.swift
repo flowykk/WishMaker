@@ -38,7 +38,7 @@ final class WrittenWishCell: UITableViewCell {
         fatalError(Constants.wishCellError)
     }
     
-    //MARK: - configure wishLabel and buttons
+    // MARK: - configure wishLabel and buttons
     func configure(wish: String, rowIndex: Int) {
         wishLabel.text = wish
         wishLabel.textColor = .black
@@ -63,7 +63,7 @@ final class WrittenWishCell: UITableViewCell {
         scheduleWishButton.addTarget(self, action: #selector(scheduleWishButtonPressed), for: .touchUpInside)
     }
     
-    //MARK: - configure UI
+    // MARK: - configure UI
     private func configureUI() {
         selectionStyle = .none
         backgroundColor = .clear
@@ -76,14 +76,20 @@ final class WrittenWishCell: UITableViewCell {
         wrap.pinTop(to: self, Constants.wrapTopAnchor)
         
         wrap.addSubview(wishDeleteButton)
+        wishDeleteButton.imageView?.setHeight(25)
+        wishDeleteButton.imageView?.setWidth(25)
         wishDeleteButton.pinRight(to: wrap.trailingAnchor, Constants.wishDeleteButtonRightAnchor)
         wishDeleteButton.pinCenterY(to: wrap)
         
         wrap.addSubview(wishEditButton)
+        wishEditButton.imageView?.setHeight(25)
+        wishEditButton.imageView?.setWidth(25)
         wishEditButton.pinRight(to: wishDeleteButton.leadingAnchor, Constants.wishEditButtonRightAnchor)
         wishEditButton.pinCenterY(to: wrap)
         
         wrap.addSubview(scheduleWishButton)
+        scheduleWishButton.imageView?.setHeight(25)
+        scheduleWishButton.imageView?.setWidth(25)
         scheduleWishButton.pinRight(to: wishEditButton.leadingAnchor, Constants.wishEditButtonRightAnchor)
         scheduleWishButton.pinCenterY(to: wrap)
         
@@ -93,18 +99,19 @@ final class WrittenWishCell: UITableViewCell {
         wishLabel.pinRight(to: wrap.trailingAnchor, Constants.wishLabelRightAnchor)
     }
     
-    //MARK: - wishDelete button was pressed
+    // MARK: - wishDelete button was pressed
     @objc
     private func wishDeleteButtonPressed() {
         deleteButtonTapAction?()
     }
     
-    //MARK: - wishEdit button was pressed
+    // MARK: - wishEdit button was pressed
     @objc
     private func wishEditButtonPressed() {
         editButtonTapAction?()
     }
     
+    // MARK: - scheduleWish button was pressed
     @objc
     private func scheduleWishButtonPressed() {
         scheduleButtonTapAction?()

@@ -17,24 +17,30 @@ final class WishEventCreationViewController: UIViewController, UISheetPresentati
         presentationController as! UISheetPresentationController
     }
 
-    let warningLabel = UILabel()
-
-    let wrap = UIView()
+    private let wrap = UIView()
+    private let warningLabel = UILabel()
+    private let titleLabel = UILabel()
+    private let startDateLabel = UILabel()
+    private let startDatePicker = UIDatePicker()
+    private let endDateLabel = UILabel()
+    private let endDatePicker = UIDatePicker()
+    private let wishDescriptionLabel = UILabel()
+    private let wishDescriptionTextField: UITextField = UITextField()
+    private let continueButton = UIButton()
     
-    let titleLabel = UILabel()
+    private let randomColor = UIColor.generateRandomColor()
     
-    let startDateLabel = UILabel()
-    let startDatePicker = UIDatePicker()
+    private var wishCalendarViewController = WishCalendarViewController()
+    private var eventTitle = String()
     
-    let endDateLabel = UILabel()
-    let endDatePicker = UIDatePicker()
+    init(_ eventTitle: String) {
+        self.eventTitle = eventTitle
+        super.init(nibName: nil, bundle: nil)
+    }
     
-    let wishDescriptionLabel = UILabel()
-    let wishDescriptionTextField: UITextField = UITextField()
-    
-    let continueButton = UIButton()
-    
-    let randomColor = generateRandomColor()
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - viewDidLoad func
     override func viewDidLoad() {
@@ -69,27 +75,28 @@ final class WishEventCreationViewController: UIViewController, UISheetPresentati
     //MARK: - configure title label
     private func configureTitleLabel() {
         titleLabel.text = "Schedule your wish"
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 30)
+        titleLabel.font = UIFont.boldSystemFont(ofSize: Constants.createWishTitleFontSize)
         titleLabel.textColor = randomColor
         titleLabel.textAlignment = .center
         
         view.addSubview(titleLabel)
         titleLabel.pinCenterX(to: view)
-        titleLabel.pinTop(to: view.safeAreaLayoutGuide.topAnchor, 35)
+        titleLabel.pinTop(to: view.safeAreaLayoutGuide.topAnchor, Constants.createWishTitleTopAnchor)
     }
     
+    //MARK: - configure wrap
     private func configureWrap() {
-        wrap.setHeight(350)
+        wrap.setHeight(Constants.createWishWrapHeight)
         
         view.addSubview(wrap)
-        wrap.pinHorizontal(to: view, 15)
+        wrap.pinHorizontal(to: view, Constants.createWishWrapHOffset)
         wrap.pinCenter(to: view)
     }
     
     //MARK: - configure label for startDate
     private func configureStartDateLabel() {
         startDateLabel.text = "Select start date"
-        startDateLabel.font = UIFont.boldSystemFont(ofSize: 20)
+        startDateLabel.font = UIFont.boldSystemFont(ofSize: Constants.createWishLabelsFontSize)
         startDateLabel.textColor = randomColor //.black
         startDateLabel.textAlignment = .center
         
@@ -102,128 +109,121 @@ final class WishEventCreationViewController: UIViewController, UISheetPresentati
     private func configureStartDatePicker() {
         startDatePicker.locale = .current
         startDatePicker.datePickerMode = .date
-        startDatePicker.setValue(UIColor.white, forKeyPath: "textColor")
+        startDatePicker.setValue(UIColor.white, forKeyPath: Constants.startDateKeyPath)
         startDatePicker.preferredDatePickerStyle = .compact
         startDatePicker.tintColor = randomColor //.systemGreen
         
         wrap.addSubview(startDatePicker)
-        startDatePicker.pinTop(to: startDateLabel.bottomAnchor, 8)
         startDatePicker.pinCenterX(to: wrap)
+        startDatePicker.pinTop(to: startDateLabel.bottomAnchor, Constants.startDatePickerTopAnchor)
     }
     
     //MARK: - configure label for endDate
     private func configureEndDateLabel() {
-        endDateLabel.text = "Select end date"
-        endDateLabel.font = UIFont.boldSystemFont(ofSize: 20)
+        endDateLabel.text = Constants.endDateLabel
+        endDateLabel.font = UIFont.boldSystemFont(ofSize: Constants.createWishLabelsFontSize)
         endDateLabel.textColor = randomColor //.black
         endDateLabel.textAlignment = .center
         
         wrap.addSubview(endDateLabel)
         endDateLabel.pinCenterX(to: wrap)
-        endDateLabel.pinTop(to: startDatePicker.bottomAnchor, 20)
+        endDateLabel.pinTop(to: startDatePicker.bottomAnchor, Constants.endDatePickerTopAnchor)
     }
     
     //MARK: - configure picker for endDate
     private func configureEndDatePicker() {
         endDatePicker.datePickerMode = .date
-        endDatePicker.minimumDate = .now.addingTimeInterval(24 * 60 * 60)
+        endDatePicker.minimumDate = .now.addingTimeInterval(Constants.timeAddingInterval)
         endDatePicker.preferredDatePickerStyle = .compact
-        endDatePicker.tintColor = randomColor //.systemGreen
-        
+        endDatePicker.tintColor = randomColor
         wrap.addSubview(endDatePicker)
-        endDatePicker.pinTop(to: endDateLabel.bottomAnchor, 8)
+        endDatePicker.pinTop(to: endDateLabel.bottomAnchor, Constants.startDatePickerTopAnchor)
         endDatePicker.pinCenterX(to: wrap)
     }
     
     //MARK: - configure label for WishDescription
     private func configureWishDescriptionLabel() {
-        wishDescriptionLabel.text = "Add description"
-        wishDescriptionLabel.font = UIFont.boldSystemFont(ofSize: 20)
-        wishDescriptionLabel.textColor = randomColor //.black
+        wishDescriptionLabel.text = Constants.wishDescriptionLabelText
+        wishDescriptionLabel.font = UIFont.boldSystemFont(ofSize: Constants.createWishLabelsFontSize)
+        wishDescriptionLabel.textColor = randomColor
         wishDescriptionLabel.textAlignment = .center
         
         wrap.addSubview(wishDescriptionLabel)
         wishDescriptionLabel.pinCenterX(to: wrap)
-        wishDescriptionLabel.pinTop(to: endDatePicker.bottomAnchor, 20)
+        wishDescriptionLabel.pinTop(to: endDatePicker.bottomAnchor, Constants.endDatePickerTopAnchor)
     }
     
     //MARK: - configure textField for wishDescription
     private func configureWishDescriptionTextField() {
-        wishDescriptionTextField.placeholder = "Your description"
+        wishDescriptionTextField.placeholder = Constants.wishDescriptionTextFieldPlaceHolder
         wishDescriptionTextField.textAlignment = .center
 
         wrap.addSubview(wishDescriptionTextField)
-        wishDescriptionTextField.pinTop(to: wishDescriptionLabel.bottomAnchor, -30)
-        wishDescriptionTextField.pinHorizontal(to: wrap, 20)
-        wishDescriptionTextField.setHeight(100)
+        wishDescriptionTextField.pinTop(to: wishDescriptionLabel.bottomAnchor, Constants.wishDescriptionTextFieldTopAnchor)
+        wishDescriptionTextField.pinHorizontal(to: wrap, Constants.wishDescriptionTextFieldHOffset)
+        wishDescriptionTextField.setHeight(Constants.wishDescriptionTextFieldHeight)
     }
     
     //MARK: - configure warning label
     private func configureWarningLabel() {
-        warningLabel.text = ""
-        warningLabel.font = UIFont.boldSystemFont(ofSize: 15)
-        warningLabel.textColor = randomColor //.black
+        warningLabel.text = String()
+        warningLabel.font = UIFont.boldSystemFont(ofSize: Constants.warningLabelFontSize)
+        warningLabel.textColor = randomColor
         warningLabel.textAlignment = .center
         
         view.addSubview(warningLabel)
         warningLabel.pinCenterX(to: wrap)
-        warningLabel.pinBottom(to: continueButton.topAnchor, 10)
+        warningLabel.pinBottom(to: continueButton.topAnchor, Constants.warningLabelBottomAnchor)
     }
     
     //MARK: - configure continueButton
     private func configureContinueButton() {
-        continueButton.setTitle("Continue", for: .normal)
-        continueButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        continueButton.setTitle(Constants.continueButtonText, for: .normal)
+        continueButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: Constants.continueButtonFontSize)
         continueButton.setTitleColor(.white, for: .normal)
         continueButton.backgroundColor = randomColor
-        continueButton.layer.cornerRadius = 20
+        continueButton.layer.cornerRadius = Constants.continueButtonCornerRadius
         continueButton.addTarget(self, action: #selector(continueButtonPressed), for: .touchUpInside)
         
         view.addSubview(continueButton)
-        continueButton.setHeight(50)
-        continueButton.setWidth(250)
+        continueButton.setHeight(Constants.continueButtonHeight)
+        continueButton.setWidth(Constants.continueButtonWidth)
         continueButton.pinCenterX(to: view)
-        continueButton.pinBottom(to: view.bottomAnchor, 40)
+        continueButton.pinBottom(to: view.bottomAnchor, Constants.continueButtonBottomAnchor)
     }
     
     
     //MARK: - Continue button was pressed
     @objc
     private func continueButtonPressed() {
+        if wishDescriptionTextField.text!.isEmpty {
+            warningLabel.text = Constants.invalidDescriptionWarning
+            return
+        }
+                
+        if !compareDates() {
+            warningLabel.text = Constants.invalidDatesWarning
+            return
+        }
+        
+        wishCalendarViewController.createItem(
+            wishEventTitle: eventTitle,
+            wishEventDescription: wishDescriptionTextField.text!,
+            startDate: startDatePicker.date,
+            endDate: endDatePicker.date
+        )
+        
         dismiss(animated: true)
     }
     
     //MARK: - function for comparing dates
     private func compareDates() -> Bool {
-        let startDate = startDatePicker.date
-        let endDate = endDatePicker.date
+        let startDate = startDatePicker.date.removeTimeFromDate
+        let endDate = endDatePicker.date.removeTimeFromDate
         
-        let comparisonResult = startDate.compare(endDate)
-        
-        if (comparisonResult != .orderedSame && comparisonResult == .orderedAscending) {
-            return true
+        if startDate.count > endDate.count || startDate >= endDate {
+            return false
         }
-        return false
-        
-//        if comparisonResult == .orderedAscending {
-//            print("Date 1 is earlier than Date 2")
-//            return true
-//        } else if comparisonResult == .orderedDescending {
-//            print("Date 1 is later than Date 2")
-//            return false
-//        } else {
-//            print("Date 1 is equal to Date 2")
-//            return true
-//        }
+        return true
     }
-}
-    
-//MARK: - generating random color method
-private func generateRandomColor() -> UIColor {
-    return UIColor(
-        red: .random(in: Constants.colorMin...Constants.colorMax),
-        green: .random(in: Constants.colorMin...Constants.colorMax),
-        blue: .random(in: Constants.colorMin...Constants.colorMax),
-        alpha: Constants.alphaValue
-    )
 }

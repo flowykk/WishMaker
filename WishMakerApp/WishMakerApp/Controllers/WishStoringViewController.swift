@@ -182,8 +182,8 @@ final class WishStoringViewController: UIViewController, UISheetPresentationCont
         table.reloadData()
     }
     
-    func createWishEvent() {
-        present(WishEventCreationViewController(), animated: true)
+    func createWishEvent(rowIndex: Int) {
+        present(WishEventCreationViewController(self.wishArray[rowIndex]), animated: true)
     }
 }
 
@@ -210,7 +210,7 @@ extension WishStoringViewController: UITableViewDataSource {
             self?.editRow(rowIndex: indexPath.row)
         }
         wishCell.scheduleButtonTapAction = { [weak self] in
-            self?.createWishEvent()
+            self?.createWishEvent(rowIndex: indexPath.row)
         }
         
         wishCell.configure(wish: wishArray[indexPath.row], rowIndex: indexPath.row)
