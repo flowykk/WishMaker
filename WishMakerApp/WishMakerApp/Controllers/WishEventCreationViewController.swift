@@ -10,7 +10,6 @@ import UIKit
 final class WishEventCreationViewController: UIViewController, UISheetPresentationControllerDelegate, UITextFieldDelegate {
     
     //MARK: - fields
-    var wraps: [UIView] = []
     
     @available(iOS 15.0, *)
     var wishStoringController: UISheetPresentationController {
@@ -84,7 +83,7 @@ final class WishEventCreationViewController: UIViewController, UISheetPresentati
     
     //MARK: - configure title label
     private func configureTitleLabel() {
-        titleLabel.text = "Schedule your wish"
+        titleLabel.text = Constants.createWishTitle
         titleLabel.font = UIFont.boldSystemFont(ofSize: Constants.createWishTitleFontSize)
         titleLabel.textColor = randomColor
         titleLabel.textAlignment = .center
@@ -105,14 +104,14 @@ final class WishEventCreationViewController: UIViewController, UISheetPresentati
     
     //MARK: - configure label for startDate
     private func configureStartDateLabel() {
-        startDateLabel.text = "Select start date"
+        startDateLabel.text = Constants.startDateLabel
         startDateLabel.font = UIFont.boldSystemFont(ofSize: Constants.createWishLabelsFontSize)
-        startDateLabel.textColor = randomColor //.black
+        startDateLabel.textColor = randomColor
         startDateLabel.textAlignment = .center
         
         wrap.addSubview(startDateLabel)
         startDateLabel.pinCenterX(to: wrap)
-        startDateLabel.pinTop(to: wrap.topAnchor, 30)
+        startDateLabel.pinTop(to: wrap.topAnchor, Constants.startDateLabelTopAnchor)
     }
     
     //MARK: - configure picker for startDate
@@ -121,7 +120,7 @@ final class WishEventCreationViewController: UIViewController, UISheetPresentati
         startDatePicker.datePickerMode = .date
         startDatePicker.setValue(UIColor.white, forKeyPath: Constants.startDateKeyPath)
         startDatePicker.preferredDatePickerStyle = .compact
-        startDatePicker.tintColor = randomColor //.systemGreen
+        startDatePicker.tintColor = randomColor
         
         wrap.addSubview(startDatePicker)
         startDatePicker.pinCenterX(to: wrap)
@@ -132,7 +131,7 @@ final class WishEventCreationViewController: UIViewController, UISheetPresentati
     private func configureEndDateLabel() {
         endDateLabel.text = Constants.endDateLabel
         endDateLabel.font = UIFont.boldSystemFont(ofSize: Constants.createWishLabelsFontSize)
-        endDateLabel.textColor = randomColor //.black
+        endDateLabel.textColor = randomColor
         endDateLabel.textAlignment = .center
         
         wrap.addSubview(endDateLabel)

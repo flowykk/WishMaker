@@ -9,6 +9,8 @@ import UIKit
 
 //MARK: - constants enum
 enum Constants {
+    static let dateFormat: String = "en_US"
+    
     static let sliderTitleFontSize: CGFloat = 17
     static let sliderTitleTopAnchor: CGFloat = 15
     
@@ -47,6 +49,8 @@ enum Constants {
     static let editWishButtonTitle: String = "Edit a wish!"
     static let clearTableButtonTitle: String = "Clear Table"
     
+    static let controlWishButtonWidth: CGFloat = 25
+    
     static let leadingAnchor: CGFloat = 20
     
     static let defaultColorDescriptionLabelText: String = "Tap the color to copy it"
@@ -54,7 +58,13 @@ enum Constants {
     static let colorDescriptionLabelFontSize: CGFloat = 12
     static let colorLabelFontSize: CGFloat = 16
     static let colorDescriptionTopAnchor: CGFloat = 2
+    
     static let colorLabelFormat: String = "#%02lX%02lX%02lX"
+    static let colorLabelFont: String = "SFMono-Regular"
+    
+    static let colorCopyAlertTitle: String = "Color was copied"
+    static let colorCopyAlertMessage: String = "You can use this color in any other app"
+    static let colorCopyAlertCancel: String = "Ok"
     
     static let maxColorNumber: CGFloat = 255
     
@@ -69,8 +79,7 @@ enum Constants {
     This small app can lift your spirits and fulfill three of your wishes!
         · You are able to change background color
         · Write, Edit and Delete your wishes in table
-    
-    To be continued...
+        · Schedule wishes and make calendar events
     """
     static let descriptionNumberOfLines: Int = 0
     static let descriptionFontSize: CGFloat = 15
@@ -113,18 +122,21 @@ enum Constants {
     static let wishEditIcon: String = "pencil.circle.fill"
     
     static let wishLabelLeftAnchor: CGFloat = 15
-    static let wishLabelRightAnchor: CGFloat = 80
+    static let wishLabelRightAnchor: CGFloat = 100
     
     static let defaultEditingRowFlag: Int = -1
     
     //MARK: - WishEventCreationViewController constants
     static let createWishTitleFontSize: CGFloat = 30
     static let createWishTitleTopAnchor: CGFloat = 35
+    static let createWishTitle: String = "Schedule your wish"
     
     static let createWishLabelsFontSize: CGFloat = 20
     
     static let startDatePickerTopAnchor: CGFloat = 8
     static let startDateKeyPath: String = "textColor"
+    static let startDateLabelTopAnchor: CGFloat = 30
+    static let startDateLabel: String = "Select start date"
     
     static let endDatePickerTopAnchor: CGFloat = 20
     static let endDateLabel: String = "Select end date"
@@ -153,7 +165,7 @@ enum Constants {
     static let continueButtonWidth: CGFloat = 250
     static let continueButtonBottomAnchor: CGFloat = 40
     
-    //MARK: WishCalendarViewController constants
+    //MARK: - WishCalendarViewController constants
     static let wishCalendarTitleLabelFontSize: CGFloat = 30
     static let wishCalendarTitleLabelTopAnchor: CGFloat = 5
     static let wishCalendatTitleText: String = "Your events"
@@ -166,4 +178,33 @@ enum Constants {
     
     static let collectionViewWidthBound: CGFloat = 25
     static let collectionViewHeight: CGFloat = 200
+    
+    //MARK: - WishEventCell constants
+    static let wishEventCellReuseId: String = "WishEventCell"
+    
+    static let defaultStartDateLabel: String = "Start Date"
+    static let defaultEndDateLabel: String = "End Date"
+    
+    static let eventCellWrapCornerRadius: CGFloat = 15
+    static let eventCellWrapOffset: CGFloat = 3
+    
+    static let eventCellWishTitleFontSize: CGFloat = 25
+    static let eventCellWishTitleTopAnchor: CGFloat = 15
+    
+    static let eventCellWishDescriptionFontSize: CGFloat = 17
+    static let eventCellWishDescriptionTopAnchor: CGFloat = 3
+    
+    static let eventCellStartDateLabelFontSize: CGFloat = 14
+    static let eventCellStartDateLabelTopAnchor: CGFloat = 20
+    static let eventCellStartDateLabelLeftAnchor: CGFloat = 15
+    
+    static let eventCellEndDateLabelFontSize: CGFloat = 14
+    static let eventCellEndDateLabelTopAnchor: CGFloat = 5
+    static let eventCellEndDateLabelLeftAnchor: CGFloat = 15
+    
+    static let eventCellDeleteButtonTitle: String = "Delete event"
+    static let eventCellDeleteButtonCornerRadius: CGFloat = 15
+    static let eventCellDeleteButtonHeight: CGFloat = 45
+    static let eventCellDeleteButtonHOffset: CGFloat = 13
+    static let eventCellDeleteButtonTopAnchor: CGFloat = 11
 }

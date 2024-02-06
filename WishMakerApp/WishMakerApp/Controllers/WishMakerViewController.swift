@@ -190,7 +190,7 @@ class WishMakerViewController: UIViewController, UIColorPickerViewControllerDele
     // MARK: - configure hex color label
     private func configureColor() {
         colorLabel.text = Constants.defaultColorLabelText
-        colorLabel.font = UIFont(name: "SFMono-Regular", size: Constants.colorLabelFontSize)
+        colorLabel.font = UIFont(name: Constants.colorLabelFont, size: Constants.colorLabelFontSize)
         colorLabel.textColor = Constants.viewColor
         colorLabel.textAlignment = .center
         
@@ -207,7 +207,7 @@ class WishMakerViewController: UIViewController, UIColorPickerViewControllerDele
     //MARK: - configure description of copy color feature
     private func configureColorDescription() {
         colorDescriptionLabel.text = Constants.defaultColorDescriptionLabelText
-        colorDescriptionLabel.font = UIFont(name: "SFMono-Regular", size: Constants.colorDescriptionLabelFontSize)
+        colorDescriptionLabel.font = UIFont(name: Constants.colorLabelFont, size: Constants.colorDescriptionLabelFontSize)
         colorDescriptionLabel.textColor = Constants.viewColor
         colorDescriptionLabel.textAlignment = .center
         
@@ -320,7 +320,7 @@ class WishMakerViewController: UIViewController, UIColorPickerViewControllerDele
         }
         
         UIPasteboard.general.string = label.text
-        self.showCopyColorAlert(title: "Color was copied", message: "You can use this color in any other app")
+        self.showCopyColorAlert(title: Constants.colorCopyAlertTitle, message: Constants.colorCopyAlertMessage)
     }
     
     //MARK: - show alerta after copying the color
@@ -330,7 +330,7 @@ class WishMakerViewController: UIViewController, UIColorPickerViewControllerDele
         }
 
         self.alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Ok", style: .cancel) { (action) in
+        let cancelAction = UIAlertAction(title: Constants.colorCopyAlertCancel, style: .cancel) { (action) in
             self.alertController = nil;
         }
         self.alertController!.addAction(cancelAction)
@@ -376,9 +376,9 @@ class WishMakerViewController: UIViewController, UIColorPickerViewControllerDele
         let blue = backgroundColorComponents[Constants.blueComponent]
         
         let inverseColor = UIColor(
-            red: 1.0 - red,
-            green: 1.0 - green,
-            blue: 1.0 - blue,
+            red: Constants.colorMax - red,
+            green: Constants.colorMax - green,
+            blue: Constants.colorMax - blue,
             alpha: Constants.alphaValue
         )
         

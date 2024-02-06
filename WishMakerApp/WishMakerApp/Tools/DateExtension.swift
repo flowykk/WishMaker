@@ -12,7 +12,7 @@ extension Date {
     public var removeTimeFromDate : String {
         let dateFormatter = DateFormatter()
 
-        dateFormatter.locale = Locale(identifier: "en_US")
+        dateFormatter.locale = Locale(identifier: Constants.dateFormat)
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .none
         

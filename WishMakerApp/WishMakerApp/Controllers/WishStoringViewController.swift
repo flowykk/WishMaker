@@ -169,9 +169,7 @@ final class WishStoringViewController: UIViewController, UISheetPresentationCont
     }
     
     //MARK: - editing row method
-    func editRow(rowIndex: Int) {
-        //self.wraps[rowIndex].backgroundColor = UIColor(red: 189/255, green: 230/255, blue: 181/255, alpha: 1)
-        
+    func editRow(rowIndex: Int) {        
         editingRow = rowIndex
         
         configureAddWishTextField()

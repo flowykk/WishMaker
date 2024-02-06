@@ -9,23 +9,26 @@ import UIKit
 import CoreData
 
 class WishCalendarViewController: UIViewController {
-    let titleLabel = UILabel()
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
+    //MARK: - fields
+    private static var events = [WishEventItem]()
+    private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    private let calendarManager = CalendarManager()
+    
+    private let titleLabel = UILabel()
     private let collectionView: UICollectionView = UICollectionView(
         frame: .zero,
         collectionViewLayout: UICollectionViewFlowLayout()
     )
     
-    private static var events = [WishEventItem]()
-    
+    //MARK: - viewDidLoad func
     override func viewDidLoad() {
         getAllItems()
-        
-        configureTitleLabel()
-        configureCollection()
+        configureUI()
     }
     
+    //MARK: - function for getting all user's events
     func getAllItems() {
         do {
             WishCalendarViewController.events = try context.fetch(WishEventItem.fetchRequest())
@@ -39,6 +42,7 @@ class WishCalendarViewController: UIViewController {
         
     }
     
+    //MARK: - function for creating new event
     func createItem(
         wishEventTitle: String,
         wishEventDescription: String,
@@ -51,10 +55,18 @@ class WishCalendarViewController: UIViewController {
         newItem.wishEventDescription = wishEventDescription
         newItem.startDate = startDate
         newItem.endDate = endDate
+        
+        let _ = calendarManager.create(eventModel: CalendarEventModel(
+            title: wishEventTitle,
+            startDate: startDate,
+            endDate: endDate)
+        )
 
         saveToContext()
     }
     
+    
+    //MARK: - function for deleteing existing event
     func deleteItem(item: WishEventItem) {
         context.delete(item)
         
@@ -75,6 +87,24 @@ class WishCalendarViewController: UIViewController {
     //MARK: - dunction to delete event from context
     func deleteEvent(rowIndex: Int) {
         deleteItem(item: WishCalendarViewController.events[rowIndex])
+    }
+    
+    //MARK: - configure UI
+    private func configureUI() {
+        navigationItem.rightBarButtonItems = [
+            UIBarButtonItem(
+                barButtonSystemItem: .add,
+                target: self,
+                action: #selector(addEventButtonPressed)
+            ), UIBarButtonItem(
+                barButtonSystemItem: .refresh,
+                target: self,
+                action: #selector(refreshEventsButtonPressed)
+            )]
+                                              
+        
+        configureTitleLabel()
+        configureCollection()
     }
     
     //MARK: - configure title
@@ -116,8 +146,21 @@ class WishCalendarViewController: UIViewController {
             forCellWithReuseIdentifier: WishEventCell.reuseId
         )
     }
+    
+    //MARK: - add event right bar button pressed
+    @objc
+    private func addEventButtonPressed() {
+        present(WishStoringViewController(), animated: true)
+    }
+    
+    //MARK: - refresh events right bar button pressed
+    @objc
+    private func refreshEventsButtonPressed() {
+        getAllItems()
+    }
 }
 
+//MARK: - extensions for WishCalendarViewController
 extension WishCalendarViewController: UICollectionViewDataSource {
     func collectionView(
         _ collectionView: UICollectionView,
@@ -157,7 +200,6 @@ extension WishCalendarViewController: UICollectionViewDelegateFlowLayout {
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
-        // Adjust cell size as needed
         return CGSize(width: collectionView.bounds.width - Constants.collectionViewWidthBound, height: Constants.collectionViewHeight)
     }
 }

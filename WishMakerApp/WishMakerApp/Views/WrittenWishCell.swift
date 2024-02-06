@@ -76,20 +76,20 @@ final class WrittenWishCell: UITableViewCell {
         wrap.pinTop(to: self, Constants.wrapTopAnchor)
         
         wrap.addSubview(wishDeleteButton)
-        wishDeleteButton.imageView?.setHeight(25)
-        wishDeleteButton.imageView?.setWidth(25)
+        wishDeleteButton.imageView?.setHeight(Constants.controlWishButtonWidth)
+        wishDeleteButton.imageView?.setWidth(Constants.controlWishButtonWidth)
         wishDeleteButton.pinRight(to: wrap.trailingAnchor, Constants.wishDeleteButtonRightAnchor)
         wishDeleteButton.pinCenterY(to: wrap)
         
         wrap.addSubview(wishEditButton)
-        wishEditButton.imageView?.setHeight(25)
-        wishEditButton.imageView?.setWidth(25)
+        wishEditButton.imageView?.setHeight(Constants.controlWishButtonWidth)
+        wishEditButton.imageView?.setWidth(Constants.controlWishButtonWidth)
         wishEditButton.pinRight(to: wishDeleteButton.leadingAnchor, Constants.wishEditButtonRightAnchor)
         wishEditButton.pinCenterY(to: wrap)
         
         wrap.addSubview(scheduleWishButton)
-        scheduleWishButton.imageView?.setHeight(25)
-        scheduleWishButton.imageView?.setWidth(25)
+        scheduleWishButton.imageView?.setHeight(Constants.controlWishButtonWidth)
+        scheduleWishButton.imageView?.setWidth(Constants.controlWishButtonWidth)
         scheduleWishButton.pinRight(to: wishEditButton.leadingAnchor, Constants.wishEditButtonRightAnchor)
         scheduleWishButton.pinCenterY(to: wrap)
         
